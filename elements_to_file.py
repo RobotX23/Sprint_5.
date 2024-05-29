@@ -19,6 +19,7 @@ class TestLocators:
     RESTORE = By.LINK_TEXT, "Восстановить пароль"
     CONSTRUCTOR = By.LINK_TEXT, "Конструктор"
     STELLEAR_BURGERS = By.XPATH, ".//a[@href='/']"
+    EXID = By.XPATH, ".//div[@class='Auth_login__3hAey']/h2"
 
 
 
