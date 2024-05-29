@@ -20,6 +20,10 @@ class TestLocators:
     CONSTRUCTOR = By.LINK_TEXT, "Конструктор"
     STELLEAR_BURGERS = By.XPATH, ".//a[@href='/']"
     EXID = By.XPATH, ".//div[@class='Auth_login__3hAey']/h2"
+    BUTTON_FILLING = By.XPATH, ".//div[@class='tab_tab__1SPyG  pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Начинки']"
+    BUTTON_SAUCE = By.XPATH, ".//div[@class='tab_tab__1SPyG  pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Соусы']"
+    BUTTON_BULK = By.XPATH, ".//div[@class='tab_tab__1SPyG  pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Булки']"
+    BUTTON_CONSTRUKTOR = By.XPATH, ".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span"
 
 
 
