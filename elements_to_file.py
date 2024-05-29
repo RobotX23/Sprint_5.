@@ -19,6 +19,8 @@ class TestLocators:
     RESTORE = By.LINK_TEXT, "Восстановить пароль"
     CONSTRUCTOR = By.LINK_TEXT, "Конструктор"
     STELLEAR_BURGERS = By.XPATH, ".//a[@href='/']"
+    EXID1 = By.XPATH, ".//button[@class='Account_button__14Yp3 text text_type_main-medium text_color_inactive']"
+    EXID2 = By.XPATH, ".//div[@class='Auth_login__3hAey']/h2[text()='Вход']"
     EXID = By.XPATH, ".//div[@class='Auth_login__3hAey']/h2"
     BUTTON_FILLING = By.XPATH, ".//div[@class='tab_tab__1SPyG  pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Начинки']"
     BUTTON_SAUCE = By.XPATH, ".//div[@class='tab_tab__1SPyG  pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Соусы']"

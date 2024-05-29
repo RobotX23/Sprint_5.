@@ -22,4 +22,4 @@ def registr():
 
 @pytest.fixture(scope='function')
 def authorization():
-    return "Фродо@1.ru", "123456"
+    return "Степан_Балабенко_2024@yandex.ru", "123456"
