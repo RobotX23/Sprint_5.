@@ -17,6 +17,8 @@ class TestLocators:
     PROFILE = By.XPATH, ".//a[@class='Account_link__2ETsJ text text_type_main-medium text_color_inactive Account_link_active__2opc9']"
     ENTRANCE = By.LINK_TEXT, "Войти"
     RESTORE = By.LINK_TEXT, "Восстановить пароль"
+    CONSTRUCTOR = By.LINK_TEXT, "Конструктор"
+    STELLEAR_BURGERS = By.XPATH, ".//a[@href='/']"
 
 
 
