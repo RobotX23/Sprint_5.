@@ -1,57 +1,117 @@
-import time
+from elements_to_file import Test_Locators
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+from data import *
 
-from elements_to_file import TestLocators
+class Test_entrance:
 
+    def test_button_account(self, driver):
 
-class Test:
-    def test_button_account(self, driver, authorization):
-        driver.implicitly_wait(1)
         driver.get("https://stellarburgers.nomoreparties.site/")
-        driver.find_element(*TestLocators.V_ACCOUNT).click()
-        driver.find_element(*TestLocators.EMAIL).click()
-        driver.find_element(*TestLocators.KLICK).send_keys(authorization[0])
-        driver.find_element(*TestLocators.PASSWORD).click()
-        driver.find_element(*TestLocators.KLICK_PASSWORD).send_keys(authorization[1])
-        driver.find_element(*TestLocators.COME).click()
-        driver.find_element(*TestLocators.PERSONAL_AREA).click()
-        assert driver.find_element(*TestLocators.PROFILE).text == 'Профиль'
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.V_ACCOUNT))
+        driver.find_element(*Test_Locators.V_ACCOUNT).click()
 
-    def test_button_personal_area(self, driver, authorization):
-        driver.implicitly_wait(1)
-        driver.get("https://stellarburgers.nomoreparties.site/")
-        driver.find_element(*TestLocators.PERSONAL_AREA).click()
-        driver.find_element(*TestLocators.EMAIL).click()
-        driver.find_element(*TestLocators.KLICK).send_keys(authorization[0])
-        driver.find_element(*TestLocators.PASSWORD).click()
-        driver.find_element(*TestLocators.KLICK_PASSWORD).send_keys(authorization[1])
-        driver.find_element(*TestLocators.COME).click()
-        driver.find_element(*TestLocators.PERSONAL_AREA).click()
-        assert driver.find_element(*TestLocators.PROFILE).text == 'Профиль'
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.EMAIL))
+        driver.find_element(*Test_Locators.EMAIL).click()
 
-    def test_button_registration(self, driver, authorization):
-        driver.implicitly_wait(1)
-        driver.get("https://stellarburgers.nomoreparties.site/")
-        driver.find_element(*TestLocators.PERSONAL_AREA).click()
-        driver.find_element(*TestLocators.REGISTER).click()
-        driver.find_element(*TestLocators.ENTRANCE).click()
-        driver.find_element(*TestLocators.EMAIL).click()
-        driver.find_element(*TestLocators.KLICK).send_keys(authorization[0])
-        driver.find_element(*TestLocators.PASSWORD).click()
-        driver.find_element(*TestLocators.KLICK_PASSWORD).send_keys(authorization[1])
-        driver.find_element(*TestLocators.COME).click()
-        driver.find_element(*TestLocators.PERSONAL_AREA).click()
-        assert driver.find_element(*TestLocators.PROFILE).text == 'Профиль'
 
-    def test_button_restore(self, driver, authorization):
-        driver.implicitly_wait(1)
+        driver.find_element(*Test_Locators.KLICK).send_keys(helpers()[0])
+        driver.find_element(*Test_Locators.PASSWORD).click()
+        driver.find_element(*Test_Locators.KLICK_PASSWORD).send_keys(helpers()[1])
+        driver.find_element(*Test_Locators.COME).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.PERSONAL_AREA))
+        driver.find_element(*Test_Locators.PERSONAL_AREA).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.PROFILE))
+        assert driver.find_element(*Test_Locators.PROFILE).text == 'Профиль'
+
+    def test_button_personal_area(self, driver):
         driver.get("https://stellarburgers.nomoreparties.site/")
-        driver.find_element(*TestLocators.V_ACCOUNT).click()
-        driver.find_element(*TestLocators.RESTORE).click()
-        driver.find_element(*TestLocators.ENTRANCE).click()
-        driver.find_element(*TestLocators.EMAIL).click()
-        driver.find_element(*TestLocators.KLICK).send_keys(authorization[0])
-        driver.find_element(*TestLocators.PASSWORD).click()
-        driver.find_element(*TestLocators.KLICK_PASSWORD).send_keys(authorization[1])
-        driver.find_element(*TestLocators.COME).click()
-        driver.find_element(*TestLocators.PERSONAL_AREA).click()
-        assert driver.find_element(*TestLocators.PROFILE).text == 'Профиль'
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.PERSONAL_AREA))
+        driver.find_element(*Test_Locators.PERSONAL_AREA).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.EMAIL))
+        driver.find_element(*Test_Locators.EMAIL).click()
+
+        driver.find_element(*Test_Locators.KLICK).send_keys(helpers()[0])
+        driver.find_element(*Test_Locators.PASSWORD).click()
+        driver.find_element(*Test_Locators.KLICK_PASSWORD).send_keys(helpers()[1])
+        driver.find_element(*Test_Locators.COME).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.PERSONAL_AREA))
+        driver.find_element(*Test_Locators.PERSONAL_AREA).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.PROFILE))
+        assert driver.find_element(*Test_Locators.PROFILE).text == 'Профиль'
+
+    def test_button_registration(self, driver):
+        driver.get("https://stellarburgers.nomoreparties.site/")
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.PERSONAL_AREA))
+        driver.find_element(*Test_Locators.PERSONAL_AREA).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.REGISTER))
+        driver.find_element(*Test_Locators.REGISTER).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.ENTRANCE))
+        driver.find_element(*Test_Locators.ENTRANCE).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.EMAIL))
+        driver.find_element(*Test_Locators.EMAIL).click()
+
+        driver.find_element(*Test_Locators.KLICK).send_keys(helpers()[0])
+        driver.find_element(*Test_Locators.PASSWORD).click()
+        driver.find_element(*Test_Locators.KLICK_PASSWORD).send_keys(helpers()[1])
+        driver.find_element(*Test_Locators.COME).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.PERSONAL_AREA))
+        driver.find_element(*Test_Locators.PERSONAL_AREA).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.PROFILE))
+        assert driver.find_element(*Test_Locators.PROFILE).text == 'Профиль'
+
+    def test_button_restore(self, driver):
+        driver.get("https://stellarburgers.nomoreparties.site/")
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.V_ACCOUNT))
+        driver.find_element(*Test_Locators.V_ACCOUNT).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.RESTORE))
+        driver.find_element(*Test_Locators.RESTORE).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.ENTRANCE))
+        driver.find_element(*Test_Locators.ENTRANCE).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.EMAIL))
+        driver.find_element(*Test_Locators.EMAIL).click()
+
+        driver.find_element(*Test_Locators.KLICK).send_keys(helpers()[0])
+        driver.find_element(*Test_Locators.PASSWORD).click()
+        driver.find_element(*Test_Locators.KLICK_PASSWORD).send_keys(helpers()[1])
+        driver.find_element(*Test_Locators.COME).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.PERSONAL_AREA))
+        driver.find_element(*Test_Locators.PERSONAL_AREA).click()
+
+        WebDriverWait(driver, 3).until(
+            expected_conditions.presence_of_element_located(Test_Locators.PROFILE))
+        assert driver.find_element(*Test_Locators.PROFILE).text == 'Профиль'

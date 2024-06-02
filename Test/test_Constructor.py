@@ -1,18 +1,28 @@
-import time
+from elements_to_file import Test_Locators
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
-from elements_to_file import TestLocators
 
-
-class Test:
-    def test_construktor(self, driver, authorization):
-        driver.implicitly_wait(1)
+class Test_constructor:
+    def test_construktor_filling(self, driver):
         driver.get("https://stellarburgers.nomoreparties.site/")
-        driver.find_element(*TestLocators.BUTTON_FILLING).click()
-        assert driver.find_element(*TestLocators.BUTTON_CONSTRUKTOR).text == 'Начинки'
-        driver.find_element(*TestLocators.BUTTON_SAUCE).click()
-        assert driver.find_element(*TestLocators.BUTTON_CONSTRUKTOR).text == 'Соусы'
-        driver.find_element(*TestLocators.BUTTON_BULK).click()
-        assert driver.find_element(*TestLocators.BUTTON_CONSTRUKTOR).text == 'Булки'
+        driver.find_element(*Test_Locators.BUTTON_FILLING).click()
+        WebDriverWait(driver, 3).until(expected_conditions.presence_of_element_located(Test_Locators.BUTTON_CONSTRUKTOR))
+        assert driver.find_element(*Test_Locators.BUTTON_CONSTRUKTOR).text == 'Начинки'
+
+    def test_construktor_souce(self, driver):
+        driver.get("https://stellarburgers.nomoreparties.site/")
+        driver.find_element(*Test_Locators.BUTTON_SAUCE).click()
+        WebDriverWait(driver, 3).until(expected_conditions.presence_of_element_located(Test_Locators.BUTTON_CONSTRUKTOR))
+        assert driver.find_element(*Test_Locators.BUTTON_CONSTRUKTOR).text == 'Соусы'
+
+    def test_construktor_bulk(self, driver):
+        driver.get("https://stellarburgers.nomoreparties.site/")
+        WebDriverWait(driver, 3).until(expected_conditions.presence_of_element_located(Test_Locators.BUTTON_CONSTRUKTOR))
+        assert driver.find_element(*Test_Locators.BUTTON_CONSTRUKTOR).text == 'Булки'
+
+
+
 
 
 

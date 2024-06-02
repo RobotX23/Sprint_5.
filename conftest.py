@@ -20,6 +20,3 @@ def registr():
     email = random_name + str(random_number) + "@1.ru"
     return name, email
 
-@pytest.fixture(scope='function')
-def authorization():
-    return "Степан_Балабенко_2024@yandex.ru", "123456"
